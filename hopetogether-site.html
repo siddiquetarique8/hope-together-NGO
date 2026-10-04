@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HopeTogether — Better People, Brighter Future</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!--
+  HOW THIS FILE IS ORGANISED (everything is in this one file, so pages always show up):
+  1. <style>  → all the design (colours are the variables at the top)
+  2. <body>   → header, 7 "pages" (home, about, work, involved, donate, gallery, contact), footer
+  3. <script> → small bits of JavaScript (page switching, animations, forms)
+
+  TO CHANGE YOUR IMAGES:
+  - Hero image → search for "HERO IMAGE" below and replace the src="..."
+  - Logo       → search for "LOGO" below and replace the src="..."
+-->
+</head>
+
+<body>
+
+<!-- ICONS: small reusable drawings. Use them like: <svg class="i"><use href="#i-heart"/></svg> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 3c1 8-2 14-7 17"/><path d="M9.8 6.1C11.4 8.8 12 12 12 17.5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></symbol>
+</svg>
+
+<!-- ================= HEADER ================= -->
+<header class="header" id="header">
+  <div class="wrap bar">
+
+    <a class="brand" href="#home" data-page="home">
+      <!-- ✅ LOGO: replace the src below with your own logo image (e.g. src="logo.png") -->
+      <img class="logo" src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=200&q=80" alt="HopeTogether logo">
+      <span><b>HopeTogether</b><small>Better People · Brighter Future</small></span>
+    </a>
+
+    <nav id="nav">
+      <a href="#home"     data-page="home">Home</a>
+      <a href="#about"    data-page="about">About</a>
+      <a href="#work"     data-page="work">Our Work</a>
+      <a href="#involved" data-page="involved">Get Involved</a>
+      <a href="#gallery"  data-page="gallery">Gallery</a>
+      <a href="#contact"  data-page="contact">Contact</a>
+    </nav>
+
+    <div style="display:flex;gap:12px;align-items:center">
+      <a class="btn green" href="#donate" data-page="donate"><svg class="i"><use href="#i-heart"/></svg><span>Donate</span></a>
+      <button id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div id="veil"></div>
+
+
+<!-- ======================================================= -->
+<!-- PAGE 1 : HOME                                           -->
+<!-- ======================================================= -->
+<main>
+<section class="page" id="page-home">
+
+  <!-- HERO: text on the left, image on the right (image goes on top on mobile) -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+
+      <div>
+        <div class="eyebrow up">Non-Profit Organization</div>
+        <h1 class="up" style="--d:.15s">Small Actions<br><em>Create Big Changes</em></h1>
+        <p class="lead up" style="--d:.3s">We work towards a more equal and sustainable world by supporting education, healthcare, and community development for those in need.</p>
+        <div class="btns up" style="--d:.45s">
+          <a class="btn green" href="#donate" data-page="donate"><svg class="i"><use href="#i-heart"/></svg>Donate Now</a>
+          <a class="btn line" href="#about" data-page="about">Learn More <svg class="i"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <div class="tilt">
+          <div class="hero-frame">
+            <!-- ✅ HERO IMAGE: replace the src below with your own photo (e.g. src="my-photo.jpg") -->
+            <img src="https://images.unsplash.com/photo-1476234251651-f353703a034d?auto=format&fit=crop&w=1000&q=80" alt="A hand holding a child's hand">
+          </div>
+          <div class="badge one">
+            <div class="ic"><svg class="i"><use href="#i-users"/></svg></div>
+            <div><b>10,000+</b><small>Lives touched</small></div>
+          </div>
+          <div class="badge two">
+            <div class="ic"><svg class="i"><use href="#i-heart"/></svg></div>
+            <div><b>Since 2016</b><small>Serving communities</small></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOUR ICONS -->
+  <div class="features">
+    <div class="wrap feat-grid">
+      <div class="feat reveal"><div class="ic c-green"><svg class="i lg"><use href="#i-book"/></svg></div><h4>Quality Education</h4><p>Helping children get the education they deserve.</p></div>
+      <div class="feat reveal" style="--d:.1s"><div class="ic c-red"><svg class="i lg"><use href="#i-heart"/></svg></div><h4>Better Healthcare</h4><p>Access to healthcare for healthier communities.</p></div>
+      <div class="feat reveal" style="--d:.2s"><div class="ic c-blue"><svg class="i lg"><use href="#i-users"/></svg></div><h4>Community Development</h4><p>Building stronger, self-reliant communities.</p></div>
+      <div class="feat reveal" style="--d:.3s"><div class="ic c-green"><svg class="i lg"><use href="#i-leaf"/></svg></div><h4>Environmental Care</h4><p>A cleaner planet for a brighter tomorrow.</p></div>
+    </div>
+  </div>
+
+  <!-- ABOUT TEASER -->
+  <section class="sec mint">
+    <div class="wrap about-grid">
+      <div class="reveal">
+        <div class="tag">About Us</div>
+        <h2 class="title">Together for a Better Tomorrow</h2>
+        <p class="sub" style="margin-bottom:28px">HopeTogether is a non-profit organization dedicated to creating lasting change in the lives of underprivileged communities. We believe in the power of education, healthcare, and opportunity to build a brighter and more inclusive future.</p>
+        <a class="btn dark" href="#about" data-page="about">Our Story <svg class="i"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="about-img">
+        <div class="rimg"><img loading="lazy" src="https://images.unsplash.com/photo-1527821468487-b724210d296a?auto=format&fit=crop&w=1000&q=80" alt="Children laughing together"></div>
+        <div class="stats reveal">
+          <div class="stat"><b data-count="10000">0</b><small>People Helped</small></div>
+          <div class="stat"><b data-count="50">0</b><small>Education Programs</small></div>
+          <div class="stat"><b data-count="20">0</b><small>Healthcare Camps</small></div>
+          <div class="stat"><b data-count="15">0</b><small>Community Projects</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOCUS AREAS (image cards) -->
+  <section class="sec white">
+    <div class="wrap">
+      <div class="head reveal"><div class="tag">Our Work</div><h2 class="title">Key Focus Areas</h2></div>
+      <div class="cards">
+        <a class="card reveal" href="#work" data-page="work" data-anchor="work-education">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1527490272553-ba05e1f11ee9?auto=format&fit=crop&w=800&q=75" alt="Children outdoors"><div class="shade"></div>
+          <div class="txt"><div class="ic"><svg class="i"><use href="#i-book"/></svg></div><h4>Education</h4><p class="desc">Scholarships, school support and learning resources.</p></div>
+        </a>
+        <a class="card reveal" style="--d:.1s" href="#work" data-page="work" data-anchor="work-health">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1706806595136-5afefb45da1a?auto=format&fit=crop&w=800&q=75" alt="Healthcare support"><div class="shade"></div>
+          <div class="txt"><div class="ic"><svg class="i"><use href="#i-heart"/></svg></div><h4>Healthcare</h4><p class="desc">Medical camps, basic healthcare and awareness programs.</p></div>
+        </a>
+        <a class="card reveal" style="--d:.2s" href="#work" data-page="work" data-anchor="work-community">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1628717341663-0007b0ee2597?auto=format&fit=crop&w=800&q=75" alt="Volunteers packing food"><div class="shade"></div>
+          <div class="txt"><div class="ic"><svg class="i"><use href="#i-users"/></svg></div><h4>Community Development</h4><p class="desc">Skill training, livelihood support and women empowerment.</p></div>
+        </a>
+        <a class="card reveal" style="--d:.3s" href="#work" data-page="work" data-anchor="work-environment">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1565803974275-dccd2f933cbb?auto=format&fit=crop&w=800&q=75" alt="Volunteers cleaning a beach"><div class="shade"></div>
+          <div class="txt"><div class="ic"><svg class="i"><use href="#i-leaf"/></svg></div><h4>Environment</h4><p class="desc">Tree plantation, clean-up drives and sustainable living.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="sec dark">
+    <div class="wrap">
+      <div class="head center reveal"><div class="tag" style="color:var(--green)">Voices of Change</div><h2 class="title">Stories From the Ground</h2></div>
+      <div class="slider reveal">
+        <div class="slide"><p>“HopeTogether didn’t just pay my daughter’s school fees — they showed up every month to check on her progress. That consistency changed how our whole family thinks about her future.”</p><div class="who"><div class="av">M</div><div><b>Meena Devi</b><small>Parent, Education Program</small></div></div></div>
+        <div class="slide"><p>“The medical camp caught my father’s condition early. We live two hours from the nearest hospital — without that camp, we would never have known in time.”</p><div class="who"><div class="av">R</div><div><b>Ramesh Kumar</b><small>Healthcare Camp Beneficiary</small></div></div></div>
+        <div class="slide"><p>“The tailoring training gave me a skill I could actually earn from. Two years later, I train other women in my own village.”</p><div class="who"><div class="av">S</div><div><b>Sunita Rani</b><small>Community Development Graduate</small></div></div></div>
+      </div>
+      <div class="ctrl">
+        <button class="arrow" id="prev" aria-label="Previous"><svg class="i"><use href="#i-left"/></svg></button>
+        <div id="dots"></div>
+        <button class="arrow" id="next" aria-label="Next"><svg class="i"><use href="#i-right"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="cta">
+    <img class="bg" loading="lazy" src="https://images.unsplash.com/photo-1635929114944-8bab23b98e74?auto=format&fit=crop&w=1400&q=70" alt="">
+    <div class="wrap">
+      <h2>Ready to be part of small actions that create big change?</h2>
+      <div class="btns">
+        <a class="btn green" href="#donate" data-page="donate"><svg class="i"><use href="#i-heart"/></svg>Donate Now</a>
+        <a class="btn line" href="#involved" data-page="involved">Get Involved</a>
+      </div>
+    </div>
+  </section>
+</section>
+
+
+<!-- ======================================================= -->
+<!-- PAGE 2 : ABOUT                                          -->
+<!-- ======================================================= -->
+<section class="page" id="page-about">
+  <div class="phero"><div class="wrap">
+    <div class="crumb"><a href="#home" data-page="home">Home</a> / About</div>
+    <h1>Together for a Better Tomorrow</h1>
+    <p>We started in 2016 with three volunteers and one classroom. Today we run programs across four states.</p>
+  </div></div>
+
+  <section class="sec white">
+    <div class="wrap split">
+      <div class="reveal">
+        <div class="tag">Our Story</div>
+        <h2 class="title">From one blackboard to hundreds of classrooms</h2>
+        <p>HopeTogether began when three friends started weekend classes for children in a Gurugram settlement whose school had shut down. A blackboard propped against a wall became a structured after-school programme within a year.</p>
+        <p>Today we are a team of 40+ staff and several hundred volunteers working across education, healthcare, community development and environmental care. Our approach has barely changed since that first classroom: show up consistently, listen first, and measure what we actually deliver.</p>
+        <a class="btn green" href="#involved" data-page="involved">Join our journey <svg class="i"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="rimg"><img loading="lazy" src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=1000&q=80" alt="Five smiling children"></div>
+    </div>
+  </section>
+
+  <section class="sec mint">
+    <div class="wrap">
+      <div class="head center reveal"><div class="tag">Our Values</div><h2 class="title">What guides every decision</h2></div>
+      <div class="vgrid">
+        <div class="vcard reveal"><div class="ic c-green"><svg class="i lg"><use href="#i-heart"/></svg></div><h3>Dignity first</h3><p>We work with people, never on them. Every program begins by asking what is actually needed.</p></div>
+        <div class="vcard reveal" style="--d:.1s"><div class="ic c-blue"><svg class="i lg"><use href="#i-check"/></svg></div><h3>Transparency</h3><p>Public annual reports, audited accounts and clear spending breakdowns for every program.</p></div>
+        <div class="vcard reveal" style="--d:.2s"><div class="ic c-red"><svg class="i lg"><use href="#i-star"/></svg></div><h3>Consistency</h3><p>Long-term presence beats one-off drives. We commit to communities for years, not weeks.</p></div>
+        <div class="vcard reveal" style="--d:.3s"><div class="ic c-green"><svg class="i lg"><use href="#i-users"/></svg></div><h3>Local leadership</h3><p>The best person to run a program is usually someone who already lives there.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec white">
+    <div class="wrap">
+      <div class="head center reveal"><div class="tag">Our Journey</div><h2 class="title">Ten years, one step at a time</h2></div>
+      <div class="timeline">
+        <div class="tl reveal"><b>2016</b><h4>The first classroom</h4><p>Three volunteers start weekend classes for 25 children.</p></div>
+        <div class="tl reveal"><b>2018</b><h4>First medical camp</h4><p>A one-day camp screens over 300 people with no clinic nearby.</p></div>
+        <div class="tl reveal"><b>2021</b><h4>Skills &amp; livelihoods</h4><p>Tailoring and computer courses launch for women and young adults.</p></div>
+        <div class="tl reveal"><b>2024</b><h4>Environment program</h4><p>Tree plantation and clean-up drives begin across four neighbourhoods.</p></div>
+        <div class="tl reveal"><b>2026</b><h4>10,000+ people helped</h4><p>Programs now run across four states with 40+ staff.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec dark">
+    <div class="wrap numbers">
+      <div class="reveal"><b data-count="10000">0</b><small>People Helped</small></div>
+      <div class="reveal" style="--d:.1s"><b data-count="50">0</b><small>Education Programs</small></div>
+      <div class="reveal" style="--d:.2s"><b data-count="20">0</b><small>Healthcare Camps</small></div>
+      <div class="reveal" style="--d:.3s"><b data-count="15">0</b><small>Community Projects</small></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2>Help us write the next chapter.</h2>
+      <div class="btns"><a class="btn green" href="#donate" data-page="donate"><svg class="i"><use href="#i-heart"/></svg>Donate Now</a><a class="btn line" href="#contact" data-page="contact">Contact Us</a></div>
+    </div>
+  </section>
+</section>
+
+
+<!-- ======================================================= -->
+<!-- PAGE 3 : OUR WORK                                       -->
+<!-- ======================================================= -->
+<section class="page" id="page-work">
+  <div class="phero"><div class="wrap">
+    <div class="crumb"><a href="#home" data-page="home">Home</a> / Our Work</div>
+    <h1>Key Focus Areas</h1>
+    <p>Four pillars guide everything we do — each chosen because it removes a real barrier between a family and a fair chance.</p>
+  </div></div>
+
+  <section class="sec white" style="padding-top:30px;padding-bottom:30px">
+    <div class="wrap">
+
+      <div class="program split" id="work-education">
+        <div class="reveal">
+          <div class="tag">Education</div>
+          <h2 class="title">Every child deserves a classroom</h2>
+          <p style="color:var(--text);margin-bottom:16px">Scholarships, school support and learning resources for children who would otherwise go without.</p>
+          <ul class="ticks">
+            <li>Scholarships covering fees, uniforms and books</li>
+            <li>After-school learning centres with trained local teachers</li>
+            <li>Digital literacy sessions for older students</li>
+            <li>Bridge courses for children returning to school</li>
+          </ul>
+          <a class="btn green" href="#donate" data-page="donate">Support Education <svg class="i"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="rimg"><img loading="lazy" src="https://images.unsplash.com/photo-1527490272553-ba05e1f11ee9?auto=format&fit=crop&w=1000&q=80" alt="Children outdoors"></div>
+      </div>
+
+      <div class="program split flip" id="work-health">
+        <div class="reveal">
+          <div class="tag">Healthcare</div>
+          <h2 class="title">Care that comes to the community</h2>
+          <p style="color:var(--text);margin-bottom:16px">Medical camps, basic healthcare and awareness programs reaching families with no clinic nearby.</p>
+          <ul class="ticks">
+            <li>Monthly camps with visiting doctors and free diagnostics</li>
+            <li>Mother and child health check-ups</li>
+            <li>Seasonal vaccination and awareness drives</li>
+            <li>Referral support for hospital care</li>
+          </ul>
+          <a class="btn green" href="#donate" data-page="donate">Support Healthcare <svg class="i"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="rimg"><img loading="lazy" src="https://images.unsplash.com/photo-1706806595136-5afefb45da1a?auto=format&fit=crop&w=1000&q=80" alt="Healthcare support"></div>
+      </div>
+
+      <div class="program split" id="work-community">
+        <div class="reveal">
+          <div class="tag">Community Development</div>
+          <h2 class="title">Skills that last a lifetime</h2>
+          <p style="color:var(--text);margin-bottom:16px">Skill training, livelihood support and women empowerment that builds lasting independence.</p>
+          <ul class="ticks">
+            <li>Tailoring, computer and trade certification courses</li>
+            <li>Self-help groups and micro-enterprise mentoring</li>
+            <li>Women-led savings and livelihood collectives</li>
+            <li>Job placement support with local employers</li>
+          </ul>
+          <a class="btn green" href="#donate" data-page="donate">Support Communities <svg class="i"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="rimg"><img loading="lazy" src="https://images.unsplash.com/photo-1628717341663-0007b0ee2597?auto=format&fit=crop&w=1000&q=80" alt="Volunteers packing food"></div>
+      </div>
+
+      <div class="program split flip" id="work-environment">
+        <div class="reveal">
+          <div class="tag">Environment</div>
+          <h2 class="title">A cleaner shared future</h2>
+          <p style="color:var(--text);margin-bottom:16px">Tree plantation, clean-up drives and sustainable living for a greener neighbourhood.</p>
+          <ul class="ticks">
+            <li>Native-species plantation drives with survival monitoring</li>
+            <li>Neighbourhood and waterway clean-ups</li>
+            <li>School eco-clubs and sustainability workshops</li>
+            <li>Household composting and waste-segregation training</li>
+          </ul>
+          <a class="btn green" href="#donate" data-page="donate">Support Environment <svg class="i"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="rimg"><img loading="lazy" src="https://images.unsplash.com/photo-1565803974275-dccd2f933cbb?auto=format&fit=crop&w=1000&q=80" alt="Volunteers cleaning a beach"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2>Pick a cause close to your heart.</h2>
+      <div class="btns"><a class="btn green" href="#donate" data-page="donate"><svg class="i"><use href="#i-heart"/></svg>Donate Now</a><a class="btn line" href="#involved" data-page="involved">Volunteer</a></div>
+    </div>
+  </section>
+</section>
+
+
+<!-- ======================================================= -->
+<!-- PAGE 4 : GET INVOLVED                                   -->
+<!-- ======================================================= -->
+<section class="page" id="page-involved">
+  <div class="phero"><div class="wrap">
+    <div class="crumb"><a href="#home" data-page="home">Home</a> / Get Involved</div>
+    <h1>Three Ways to Stand With Us</h1>
+    <p>Give, volunteer, or partner — every route leads to the same place: a child in a classroom, a family at a clinic, a woman with a new trade.</p>
+  </div></div>
+
+  <section class="sec mint">
+    <div class="wrap three">
+      <div class="involve reveal"><div class="ic c-green"><svg class="i lg"><use href="#i-heart"/></svg></div><h3>Donate</h3><p>Every contribution, big or small, goes directly toward a child’s education, a family’s health or a community’s growth.</p><a class="btn outline" href="#donate" data-page="donate">Give Now</a></div>
+      <div class="involve reveal" style="--d:.1s"><div class="ic c-blue"><svg class="i lg"><use href="#i-users"/></svg></div><h3>Volunteer</h3><p>Bring your time and skills to our education, healthcare or environment programs — on the ground or remotely.</p><a class="btn outline" href="#contact" data-page="contact" data-subject="I would like to volunteer">Join as Volunteer</a></div>
+      <div class="involve reveal" style="--d:.2s"><div class="ic c-red"><svg class="i lg"><use href="#i-star"/></svg></div><h3>Partner With Us</h3><p>Companies, schools and local organizations — team up with us on programs that reach further, together.</p><a class="btn outline" href="#contact" data-page="contact" data-subject="Partnership enquiry">Start a Conversation</a></div>
+    </div>
+  </section>
+
+  <section class="sec white">
+    <div class="wrap split">
+      <div class="rimg"><img loading="lazy" src="https://images.unsplash.com/photo-1652971876875-05db98fab376?auto=format&fit=crop&w=1000&q=80" alt="Volunteers by a river"></div>
+      <div class="reveal">
+        <div class="tag">Volunteer</div>
+        <h2 class="title">Where volunteers help most</h2>
+        <ul class="ticks">
+          <li><b>Teaching</b> — two-hour weekday slots at our after-school centres</li>
+          <li><b>Medical camps</b> — doctors, nurses and pharmacists, one weekend a month</li>
+          <li><b>Skills training</b> — trainers for tailoring, computers and spoken English</li>
+          <li><b>Field drives</b> — plantation and clean-up weekends, no experience needed</li>
+          <li><b>Remote</b> — design, translation and grant-writing support</li>
+        </ul>
+        <a class="btn green" style="margin-top:14px" href="#contact" data-page="contact" data-subject="I would like to volunteer">Apply to volunteer <svg class="i"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec mint">
+    <div class="wrap">
+      <div class="head center reveal"><div class="tag">FAQ</div><h2 class="title">Questions people often ask</h2></div>
+      <div class="faq reveal">
+        <details><summary>How much of my donation reaches the programs?</summary><p>About 84 paise of every rupee goes directly to programs. The rest covers audits, compliance and the small core team that keeps everything running.</p></details>
+        <details><summary>Is my donation tax-deductible?</summary><p>Yes. HopeTogether is registered under Section 12A and donations qualify for deduction under Section 80G. A receipt is emailed right after your gift.</p></details>
+        <details><summary>How long is the volunteer commitment?</summary><p>We ask for a minimum of three months so the children and families you work with get consistency. Orientation is provided before your first session.</p></details>
+        <details><summary>Can my company partner with you?</summary><p>Absolutely. We work with companies on CSR programs, employee volunteering and in-kind donations. Use the contact page to start the conversation.</p></details>
+      </div>
+    </div>
+  </section>
+</section>
+
+
+<!-- ======================================================= -->
+<!-- PAGE 5 : DONATE                                         -->
+<!-- ======================================================= -->
+<section class="page" id="page-donate">
+  <div class="phero"><div class="wrap">
+    <div class="crumb"><a href="#home" data-page="home">Home</a> / Donate</div>
+    <h1>Make a Donation</h1>
+    <p>Every contribution goes directly toward a child’s education, a family’s health or a community’s growth.</p>
+  </div></div>
+
+  <section class="sec white">
+    <div class="wrap two">
+
+      <div class="reveal">
+        <div class="tag">Your Impact</div>
+        <h2 class="title">Where your money goes</h2>
+        <p class="sub" style="margin-bottom:18px">We publish a full breakdown every year. About 84 paise of every rupee reaches programs directly.</p>
+        <div class="line-item"><b>₹500</b><p>A month of learning materials for one child, or basic medicines for one patient at a camp.</p></div>
+        <div class="line-item"><b>₹1,500</b><p>A full term of after-school tutoring, or a diagnostic screening for an entire family.</p></div>
+        <div class="line-item"><b>₹5,000</b><p>A child’s complete school year, or one full day of a mobile medical camp.</p></div>
+        <div class="rimg" style="height:240px;margin-top:30px"><img loading="lazy" src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1000&q=75" alt="A helping hand"></div>
+        <p style="margin-top:22px;color:var(--text);font-size:14.5px"><b>Tax benefit:</b> donations are eligible for deduction under Section 80G. Your receipt is emailed immediately.</p>
+      </div>
+
+      <div class="panel reveal" style="--d:.1s">
+        <div id="donateForm">
+          <h3>Choose your gift</h3>
+          <p style="color:var(--muted);font-size:14px">Secure, and cancellable at any time.</p>
+          <div class="freq"><button class="on" data-f="once">One-time</button><button data-f="monthly">Monthly</button></div>
+          <div class="amounts">
+            <button class="amt" data-v="500">₹500</button>
+            <button class="amt on" data-v="1500">₹1,500</button>
+            <button class="amt" data-v="5000">₹5,000</button>
+          </div>
+          <div class="field"><input id="custom" type="number" min="1" placeholder="Or enter a custom amount (₹)"></div>
+          <div class="field"><input id="dName" placeholder="Your name"><div class="err"></div></div>
+          <div class="field"><input id="dEmail" type="email" placeholder="Email address"><div class="err"></div></div>
+          <button class="btn green" id="donateGo" style="width:100%;justify-content:center"><svg class="i"><use href="#i-heart"/></svg><span id="donateLabel">Donate ₹1,500</span></button>
+        </div>
+        <div class="done" id="donateDone">
+          <svg class="i"><use href="#i-check"/></svg>
+          <h3>Thank you!</h3>
+          <p id="donateMsg"></p>
+          <button class="btn outline" id="donateAgain">Make another gift</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</section>
+
+
+<!-- ======================================================= -->
+<!-- PAGE 6 : GALLERY                                        -->
+<!-- ======================================================= -->
+<section class="page" id="page-gallery">
+  <div class="phero"><div class="wrap">
+    <div class="crumb"><a href="#home" data-page="home">Home</a> / Gallery</div>
+    <h1>Moments From the Field</h1>
+    <p>Photographs from our classrooms, camps, training centres and plantation drives.</p>
+  </div></div>
+
+  <section class="sec white">
+    <div class="wrap">
+      <div class="chips">
+        <button class="chip on" data-f="all">All</button>
+        <button class="chip" data-f="kids">Children</button>
+        <button class="chip" data-f="community">Community</button>
+        <button class="chip" data-f="env">Environment</button>
+      </div>
+      <div class="gal">
+        <div class="g-item big" data-cat="kids"><img loading="lazy" src="https://images.unsplash.com/photo-1476234251651-f353703a034d?auto=format&fit=crop&w=1000&q=75" alt="Reading together"><span>Reading together</span></div>
+        <div class="g-item" data-cat="kids"><img loading="lazy" src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=700&q=75" alt="Smiles all around"><span>Smiles all around</span></div>
+        <div class="g-item" data-cat="community"><img loading="lazy" src="https://images.unsplash.com/photo-1628717341663-0007b0ee2597?auto=format&fit=crop&w=700&q=75" alt="Food distribution day"><span>Food distribution day</span></div>
+        <div class="g-item" data-cat="kids"><img loading="lazy" src="https://images.unsplash.com/photo-1635929114944-8bab23b98e74?auto=format&fit=crop&w=700&q=75" alt="Walking to school"><span>Walking to school</span></div>
+        <div class="g-item" data-cat="env"><img loading="lazy" src="https://images.unsplash.com/photo-1565803974275-dccd2f933cbb?auto=format&fit=crop&w=700&q=75" alt="Beach clean-up"><span>Beach clean-up</span></div>
+        <div class="g-item" data-cat="community"><img loading="lazy" src="https://images.unsplash.com/photo-1578357078586-491adf1aa5ba?auto=format&fit=crop&w=700&q=75" alt="Hand in hand"><span>Hand in hand</span></div>
+        <div class="g-item" data-cat="env"><img loading="lazy" src="https://images.unsplash.com/photo-1618521715147-29e4b97e2ebd?auto=format&fit=crop&w=700&q=75" alt="Plantation drive"><span>Plantation drive</span></div>
+        <div class="g-item" data-cat="kids"><img loading="lazy" src="https://images.unsplash.com/photo-1527821468487-b724210d296a?auto=format&fit=crop&w=700&q=75" alt="Laughter in the sun"><span>Laughter in the sun</span></div>
+        <div class="g-item" data-cat="community"><img loading="lazy" src="https://images.unsplash.com/photo-1652971876875-05db98fab376?auto=format&fit=crop&w=700&q=75" alt="Volunteers by the river"><span>Volunteers by the river</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2>Want to be in the next photo?</h2>
+      <div class="btns"><a class="btn green" href="#contact" data-page="contact" data-subject="I would like to volunteer">Volunteer</a><a class="btn line" href="#donate" data-page="donate">Donate</a></div>
+    </div>
+  </section>
+</section>
+
+
+<!-- ======================================================= -->
+<!-- PAGE 7 : CONTACT                                        -->
+<!-- ======================================================= -->
+<section class="page" id="page-contact">
+  <div class="phero"><div class="wrap">
+    <div class="crumb"><a href="#home" data-page="home">Home</a> / Contact</div>
+    <h1>Let’s Start a Conversation</h1>
+    <p>Questions about a program, a donation or a partnership? A real person replies within two working days.</p>
+  </div></div>
+
+  <section class="sec mint">
+    <div class="wrap two c2">
+      <div class="reveal">
+        <div class="tag">Reach Us</div>
+        <h2 class="title">We would love to hear from you</h2>
+        <p class="sub" style="margin-bottom:30px">Write to us, call, or drop by our office — whichever is easiest for you.</p>
+        <div class="info"><div class="ic"><svg class="i"><use href="#i-pin"/></svg></div><div><h4>Visit Us</h4><p>New delhi 110025</p></div></div>
+        <div class="info"><div class="ic"><svg class="i"><use href="#i-phone"/></svg></div><div><h4>Call Us</h4><p>+91 93549 81262</p></div></div>
+        <div class="info"><div class="ic"><svg class="i"><use href="#i-mail"/></svg></div><div><h4>Email Us</h4><p>siddiquetarique21@gmail.com</p></div></div>
+        <div class="info"><div class="ic"><svg class="i"><use href="#i-check"/></svg></div><div><h4>contact on whatsapp</h4><p><a href="https://wa.me/919354981262" target="_blank" class="WAphone">+91 9354981262</a>
+</p></div></div>
+      </div>
+
+      <div class="panel reveal" style="--d:.1s">
+        <form id="contactForm" novalidate>
+          <div class="row">
+            <div class="field"><label>Full name</label><input id="cName" placeholder="Your name"><div class="err"></div></div>
+            <div class="field"><label>Email</label><input id="cEmail" type="email" placeholder="you@example.com"><div class="err"></div></div>
+          </div>
+          <div class="field"><label>Subject</label><input id="cSubject" placeholder="How can we help?"><div class="err"></div></div>
+          <div class="field"><label>Message</label><textarea id="cMessage" rows="4" placeholder="Tell us a little more..."></textarea><div class="err"></div></div>
+          <button class="btn green" type="submit" style="width:100%;justify-content:center">Send Message <svg class="i"><use href="#i-arrow"/></svg></button>
+        </form>
+        <div class="done" id="contactDone">
+          <svg class="i"><use href="#i-check"/></svg>
+          <h3>Message sent</h3>
+          <p>Thanks for reaching out — our team will reply within two working days.</p>
+          <button class="btn outline" id="contactAgain">Send another message</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap foot">
+    <div>
+      <a class="brand" href="#home" data-page="home" style="margin-bottom:16px">
+        <img class="logo" src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=200&q=80" alt="HopeTogether logo">
+        <span><b>HopeTogether</b></span>
+      </a>
+      <p>A non-profit working towards a more equal and sustainable world — one program, one community at a time.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home" data-page="home">Home</a></li>
+        <li><a href="#about" data-page="about">About Us</a></li>
+        <li><a href="#work" data-page="work">Our Work</a></li>
+        <li><a href="#gallery" data-page="gallery">Gallery</a></li>
+        <li><a href="#contact" data-page="contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#work" data-page="work" data-anchor="work-education">Education</a></li>
+        <li><a href="#work" data-page="work" data-anchor="work-health">Healthcare</a></li>
+        <li><a href="#work" data-page="work" data-anchor="work-community">Community Development</a></li>
+        <li><a href="#work" data-page="work" data-anchor="work-environment">Environment</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Stay Updated</h4>
+      <p>Quarterly updates on the programs your support makes possible.</p>
+      <form class="news" id="newsForm">
+        <input id="newsEmail" type="email" placeholder="Your email address" required>
+        <button aria-label="Subscribe"><svg class="i"><use href="#i-arrow"/></svg></button>
+      </form>
+    </div>
+  </div>
+  <div class="wrap copy">
+    <span>© 2026 HopeTogether. All rights reserved.</span>
+    <span>This is a demo website made by Tarique Siddiqui for study and practice purposes. HopeTogether is not a real NGO.</span>
+    <a href="#donate" data-page="donate">Donate</a>
+  </div>
+</footer>
+
+<!-- Lightbox (gallery pop-up) -->
+<div id="lightbox">
+  <button class="lb-btn" id="lbClose" style="top:24px;right:24px"><svg class="i"><use href="#i-x"/></svg></button>
+  <button class="lb-btn" id="lbPrev" style="left:24px;top:50%"><svg class="i"><use href="#i-left"/></svg></button>
+  <button class="lb-btn" id="lbNext" style="right:24px;top:50%"><svg class="i"><use href="#i-right"/></svg></button>
+  <div><img id="lbImg" src="" alt=""><p id="lbCap"></p></div>
+</div>
+
+<div id="toasts"></div>
+<button id="toTop" aria-label="Back to top"><svg class="i"><use href="#i-up"/></svg></button>
+
+<script src="script.js"></script>
+</body>
+</html>
