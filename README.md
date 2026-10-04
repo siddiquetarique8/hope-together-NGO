@@ -1,1 +1,1 @@
-# mdj
+Please note: HopeTogether is a fictional organization. This website was designed and coded by Tarique Siddiqui as a study and portfolio project. The donation form does not take any real money. Photos are from Unsplash. If you'd like to know more about the project or work with me, contact me at siddiquetarique21@gmail.com.
